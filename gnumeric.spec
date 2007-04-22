@@ -2,13 +2,12 @@
 %define goffice %(rpm -q --queryformat %%{VERSION} goffice)
 Name: gnumeric
 Summary: A full-featured spreadsheet for GNOME
-Version: 1.7.8
+Version: 1.7.9
 Release: %mkrel 1
 License: GPL
 Group: Office
 Source0: http://ftp.gnome.org/pub/GNOME/sources/%{name}/%{name}-%{version}.tar.bz2
 # (fc) fix help path
-Patch0: gnumeric-1.7.0-fixhelp.patch
 Patch1: gnumeric-1.7.6-gda3.patch
 Source2: %{name}-32.png
 Source3: %{name}-16.png
@@ -20,7 +19,7 @@ BuildRoot: %{_tmppath}/%{name}-%{version}-buildroot
 Requires: %libname = %version
 BuildRequires:	libgnomeui2-devel
 BuildRequires:  libgsf-devel >= 1:1.14.2
-BuildRequires:  libgoffice-devel >= 0.3.7
+BuildRequires:  libgoffice-devel >= 0.3.8
 BuildRequires:  libglade2.0-devel
 BuildRequires:  libgnomeprintui-devel >= 2.4.2
 %if %{mdkversion} >= 200610
@@ -77,7 +76,6 @@ usability. Hopefully the bugs have been left behind :).
 
 %prep
 %setup -q
-%patch0 -p1 -b .fixhelp
 %patch1 -p1
 autoconf
 
