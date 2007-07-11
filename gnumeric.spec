@@ -3,10 +3,11 @@
 Name: gnumeric
 Summary: A full-featured spreadsheet for GNOME
 Version: 1.7.10
-Release: %mkrel 1
+Release: %mkrel 2
 License: GPL
 Group: Office
 Source0: http://ftp.gnome.org/pub/GNOME/sources/%{name}/%{name}-%{version}.tar.bz2
+Patch: gnumeric-1.7.10-deprecated-gtk.patch
 # (fc) fix help path
 Patch1: gnumeric-1.7.6-gda3.patch
 Source2: %{name}-32.png
@@ -76,6 +77,7 @@ usability. Hopefully the bugs have been left behind :).
 
 %prep
 %setup -q
+%patch -p1
 %patch1 -p1
 autoconf
 
