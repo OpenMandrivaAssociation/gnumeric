@@ -3,7 +3,7 @@
 Name: gnumeric
 Summary: A full-featured spreadsheet for GNOME
 Version: 1.7.11
-Release: %mkrel 1
+Release: %mkrel 2
 License: GPL
 Group: Office
 Source0: http://ftp.gnome.org/pub/GNOME/sources/%{name}/%{name}-%{version}.tar.bz2
@@ -21,9 +21,8 @@ BuildRequires:  libgoffice-devel >= 0.4.2
 BuildRequires:  libglade2.0-devel
 BuildRequires:  libgnomeprintui-devel >= 2.4.2
 #BuildRequires:	mono-devel
-#gw it needs the unreleased version of gda and gnome-db
-#BuildRequires:	libgda2.0-devel >= 3.1.1
-#BuildRequires:	gnome-db2.0-devel >= 3.0.1
+BuildRequires:	libgda2.0-devel >= 3.1.1
+BuildRequires:	gnome-db2.0-devel >= 3.0.1
 BuildRequires:	libpx-devel >= 0.3.0
 BuildRequires:	libpsiconv-devel
 BuildRequires:	pygtk2.0-devel
