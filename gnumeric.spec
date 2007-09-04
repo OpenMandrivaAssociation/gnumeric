@@ -2,8 +2,8 @@
 %define goffice %(rpm -q --queryformat %%{VERSION} goffice)
 Name: gnumeric
 Summary: A full-featured spreadsheet for GNOME
-Version: 1.7.11
-Release: %mkrel 3
+Version: 1.7.12
+Release: %mkrel 1
 License: GPL
 Group: Office
 Source0: http://ftp.gnome.org/pub/GNOME/sources/%{name}/%{name}-%{version}.tar.bz2
@@ -16,8 +16,8 @@ BuildRoot: %{_tmppath}/%{name}-%{version}-buildroot
 
 Requires: %libname = %version
 BuildRequires:	libgnomeui2-devel
-BuildRequires:  libgsf-devel >= 1:1.14.2
-BuildRequires:  libgoffice-devel >= 0.4.2
+BuildRequires:  libgsf-devel >= 1:1.14.6
+BuildRequires:  libgoffice-devel >= 0.5.0
 BuildRequires:  libglade2.0-devel
 BuildRequires:  libgnomeprintui-devel >= 2.4.2
 #BuildRequires:	mono-devel
