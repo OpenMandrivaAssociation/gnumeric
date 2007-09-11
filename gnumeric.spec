@@ -3,7 +3,7 @@
 Name: gnumeric
 Summary: A full-featured spreadsheet for GNOME
 Version: 1.7.12
-Release: %mkrel 1
+Release: %mkrel 2
 License: GPL
 Group: Office
 Source0: http://ftp.gnome.org/pub/GNOME/sources/%{name}/%{name}-%{version}.tar.bz2
@@ -89,21 +89,13 @@ ln -s %_datadir/gnome %buildroot%_datadir/%name/%version
 
 find %buildroot -name \*.la|xargs chmod 644
 
-# Menu
-mkdir -p $RPM_BUILD_ROOT%{_menudir}
-cat >$RPM_BUILD_ROOT%{_menudir}/%{name} <<EOF
-?package(%{name}): command="%{_bindir}/%{name}" needs="X11" \
-icon="%{name}.png" section="Office/Spreadsheets" \
-title="Gnumeric" longtitle="A full-featured spreadsheet for Gnome" \
-startup_notify="false" mimetypes="application/msexcel,text/x-csv,application/x-quattropro,application/x-gnumeric" \
-xdg="true"
-EOF
-
 desktop-file-install --vendor="" \
+  --remove-category="Application" \
+  --remove-category="Science" \
+  --remove-category="Math" \
   --remove-category="Application" \
   --add-category="GTK" \
   --add-category="GNOME" \
-  --add-category="X-MandrivaLinux-Office-Spreadsheets" \
   --dir $RPM_BUILD_ROOT%{_datadir}/applications $RPM_BUILD_ROOT%{_datadir}/applications/*
 
 # icon
@@ -123,7 +115,7 @@ cat %name-functions.lang >> %name.lang
 
 %post
 %{update_menus}
-if [ -x %{_bindir}/scrollkeeper-update ]; then %{_bindir}/scrollkeeper-update -q || true ; fi
+%update_scrollkeeper
 export GCONF_CONFIG_SOURCE=`gconftool-2 --get-default-source`
 for schema in gnumeric-dialogs gnumeric-general gnumeric-plugins; do 
   gconftool-2 --makefile-install-rule %{_sysconfdir}/gconf/schemas/$schema.schemas > /dev/null
@@ -139,7 +131,8 @@ fi
 
 %postun
 %{clean_menus}
-if [ -x %{_bindir}/scrollkeeper-update ]; then %{_bindir}/scrollkeeper-update -q || true ; fi
+%clean_scrollkeeper
+
 %post -n %libname -p /sbin/ldconfig 
 %postun -n %libname -p /sbin/ldconfig 
 
@@ -153,7 +146,6 @@ if [ -x %{_bindir}/scrollkeeper-update ]; then %{_bindir}/scrollkeeper-update -q
 %{_datadir}/applications/*
 %{_datadir}/pixmaps/*
 %{_mandir}/man1/*
-%{_menudir}/*
 %{_iconsdir}/%{name}.png
 %{_miconsdir}/%{name}.png
 %{_liconsdir}/%{name}.png
