@@ -3,7 +3,7 @@
 Name: gnumeric
 Summary: A full-featured spreadsheet for GNOME
 Version: 1.7.12
-Release: %mkrel 2
+Release: %mkrel 3
 License: GPL
 Group: Office
 Source0: http://ftp.gnome.org/pub/GNOME/sources/%{name}/%{name}-%{version}.tar.bz2
@@ -11,6 +11,8 @@ Source2: %{name}-32.png
 Source3: %{name}-16.png
 Source4: %{name}-48.png
 Patch: gnumeric-1.7.11-desktopfile.patch
+# gw: hardcode help file path (bug #33798)
+Patch1: gnumeric-1.7.12-help-path.patch
 URL:http://www.gnome.org/projects/gnumeric/
 BuildRoot: %{_tmppath}/%{name}-%{version}-buildroot
 
