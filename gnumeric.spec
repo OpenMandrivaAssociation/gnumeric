@@ -1,5 +1,7 @@
 %define libname %mklibname spreadsheet %version
+%define develname %mklibname -d spreadsheet
 %define goffice %(rpm -q --queryformat %%{VERSION} goffice)
+
 Name: gnumeric
 Summary: A full-featured spreadsheet for GNOME
 Version: 1.7.13
@@ -57,7 +59,7 @@ Excel, you should be ready to use Gnumeric.  It tries to clone all of
 the good features and stay as compatible as possible with Excel in terms of 
 usability. Hopefully the bugs have been left behind :).
 
-%package -n %libname-devel
+%package -n %develname
 Summary: Spreadsheet library from Gnumeric - development files
 Group: Development/C
 Requires: %libname = %version
@@ -66,7 +68,7 @@ Provides: %{name}-devel = %version-%release
 Obsoletes: %{name}-devel
 
 
-%description -n %libname-devel
+%description -n %develname
 This is the Gnumeric, the GNOME spreadsheet program. If you are familiar with 
 Excel, you should be ready to use Gnumeric.  It tries to clone all of 
 the good features and stay as compatible as possible with Excel in terms of 
@@ -161,7 +163,7 @@ fi
 %defattr(-, root, root)
 %_libdir/libspreadsheet-%version.so
 
-%files -n %libname-devel
+%files -n %develname
 %defattr(-, root, root)
 %_libdir/libspreadsheet.so
 %_libdir/lib*.la
