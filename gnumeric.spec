@@ -4,7 +4,7 @@
 
 Name: gnumeric
 Summary: A full-featured spreadsheet for GNOME
-Version: 1.7.14
+Version: 1.7.90
 Release: %mkrel 2
 License: GPL
 Group: Office
@@ -21,7 +21,7 @@ BuildRoot: %{_tmppath}/%{name}-%{version}-buildroot
 Requires: %libname = %version
 BuildRequires:	libgnomeui2-devel
 BuildRequires:  libgsf-devel >= 1:1.14.6
-BuildRequires:  libgoffice-devel >= 0.5.2
+BuildRequires:  libgoffice-devel >= 0.5.3
 BuildRequires:  libglade2.0-devel
 BuildRequires:  libgnomeprintui-devel >= 2.4.2
 #BuildRequires:	mono-devel
