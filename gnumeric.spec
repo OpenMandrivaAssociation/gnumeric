@@ -143,7 +143,7 @@ fi
 
 %files -f %{name}.lang
 %defattr(-, root, root)
-%doc AUTHORS ChangeLog NEWS BUGS README
+%doc AUTHORS NEWS BUGS README
 %{_sysconfdir}/gconf/schemas/*
 %{_bindir}/*
 %{_libdir}/gnumeric
