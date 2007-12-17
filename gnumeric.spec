@@ -16,7 +16,6 @@ Patch: gnumeric-1.7.11-desktopfile.patch
 # gw: hardcode help file path (bug #33798)
 Patch1: gnumeric-1.7.12-help-path.patch
 URL:http://www.gnome.org/projects/gnumeric/
-BuildRoot: %{_tmppath}/%{name}-%{version}-buildroot
 
 Requires: %libname = %version
 BuildRequires:	libgnomeui2-devel
