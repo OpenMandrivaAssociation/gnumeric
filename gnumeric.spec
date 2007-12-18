@@ -15,6 +15,7 @@ Source4: %{name}-48.png
 Patch: gnumeric-1.7.11-desktopfile.patch
 # gw: hardcode help file path (bug #33798)
 Patch1: gnumeric-1.7.12-help-path.patch
+Patch2: gnumeric-1.7.91-goffice-0.6.0.patch
 URL:http://www.gnome.org/projects/gnumeric/
 
 Requires: %libname = %version
@@ -77,6 +78,7 @@ usability. Hopefully the bugs have been left behind :).
 %setup -q
 %patch -p1
 %patch1 -p1
+%patch2 -p1
 
 %build
 
