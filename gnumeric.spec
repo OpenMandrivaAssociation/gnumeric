@@ -17,6 +17,7 @@ Patch: gnumeric-1.7.11-desktopfile.patch
 Patch1: gnumeric-1.7.12-help-path.patch
 Patch2: gnumeric-1.7.91-goffice-0.6.0.patch
 URL:http://www.gnome.org/projects/gnumeric/
+BuildRoot: %{_tmppath}/%{name}-%{version}-buildroot
 
 Requires: %libname = %version
 BuildRequires:	libgnomeui2-devel
