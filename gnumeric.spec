@@ -4,7 +4,7 @@
 
 Name: gnumeric
 Summary: A full-featured spreadsheet for GNOME
-Version: 1.8.0
+Version: 1.8.1
 Release: %mkrel 1
 License: GPL
 Group: Office
