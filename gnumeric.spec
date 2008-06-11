@@ -123,18 +123,10 @@ cat %name-functions.lang >> %name.lang
 %post
 %{update_menus}
 %update_scrollkeeper
-export GCONF_CONFIG_SOURCE=`gconftool-2 --get-default-source`
-for schema in gnumeric-dialogs gnumeric-general gnumeric-plugins; do 
-  gconftool-2 --makefile-install-rule %{_sysconfdir}/gconf/schemas/$schema.schemas > /dev/null
-done
+%post_install_gconf_schemas gnumeric-dialogs gnumeric-general gnumeric-plugins
 
 %preun
-if [ "$1" = "0" ]; then
- export GCONF_CONFIG_SOURCE=`gconftool-2 --get-default-source`
- for schema in gnumeric-dialogs gnumeric-general gnumeric-plugins; do 
-   gconftool-2 --makefile-uninstall-rule %{_sysconfdir}/gconf/schemas/$schema.schemas > /dev/null
- done
-fi
+%preun_uninstall_gconf_schemas gnumeric-dialogs gnumeric-general gnumeric-plugins
 
 %postun
 %{clean_menus}
