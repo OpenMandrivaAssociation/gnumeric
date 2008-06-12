@@ -120,17 +120,21 @@ cat %name-functions.lang >> %name.lang
 %clean
 [ -n "$RPM_BUILD_ROOT" -a "$RPM_BUILD_ROOT" != / ] && rm -rf $RPM_BUILD_ROOT
 
+%if %mdkversion < 200900
 %post
 %{update_menus}
 %update_scrollkeeper
 %post_install_gconf_schemas gnumeric-dialogs gnumeric-general gnumeric-plugins
+%endif
 
 %preun
 %preun_uninstall_gconf_schemas gnumeric-dialogs gnumeric-general gnumeric-plugins
 
+%if %mdkversion < 200900
 %postun
 %{clean_menus}
 %clean_scrollkeeper
+%endif
 
 %if %mdkversion < 200900
 %post -n %libname -p /sbin/ldconfig 
