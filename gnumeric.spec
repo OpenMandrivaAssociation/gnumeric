@@ -4,7 +4,7 @@
 
 Name: gnumeric
 Summary: A full-featured spreadsheet for GNOME
-Version: 1.9.2
+Version: 1.9.3
 Release: %mkrel 1
 License: GPLv2+
 Group: Office
@@ -21,7 +21,7 @@ BuildRoot: %{_tmppath}/%{name}-%{version}-buildroot
 Requires: %libname = %version
 BuildRequires:	libgnomeui2-devel
 BuildRequires:  libgsf-devel >= 1:1.14.9
-BuildRequires:  libgoffice-devel >= 0.7.1
+BuildRequires:  libgoffice-devel >= 0.7.2
 BuildRequires:  libglade2.0-devel
 BuildRequires:  libgnomeprintui-devel >= 2.4.2
 #BuildRequires:	mono-devel
@@ -144,6 +144,7 @@ cat %name-functions.lang >> %name.lang
 %doc AUTHORS NEWS BUGS README
 %{_sysconfdir}/gconf/schemas/*
 %{_bindir}/*
+%{_libdir}/goffice/%goffice/plugins/gnumeric
 %{_libdir}/gnumeric
 %{_datadir}/gnumeric
 %{_datadir}/applications/*
