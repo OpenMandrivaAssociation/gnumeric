@@ -15,6 +15,7 @@ Source4: %{name}-48.png
 # gw: hardcode help file path (bug #33798)
 Patch1: gnumeric-1.9.3-help-path.patch
 Patch3: gnumeric-1.8.0-missing.patch
+Patch4: gnumeric-1.9.3-fix-str-fmt.patch
 URL:http://www.gnome.org/projects/gnumeric/
 BuildRoot: %{_tmppath}/%{name}-%{version}-buildroot
 
@@ -78,6 +79,7 @@ usability. Hopefully the bugs have been left behind :).
 %setup -q
 %patch1 -p1
 %patch3 -p1
+%patch4 -p0
 
 %build
 %configure2_5x --enable-ssindex
