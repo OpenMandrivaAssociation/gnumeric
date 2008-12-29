@@ -13,7 +13,7 @@ Source2: %{name}-32.png
 Source3: %{name}-16.png
 Source4: %{name}-48.png
 # gw: hardcode help file path (bug #33798)
-Patch1: gnumeric-1.7.12-help-path.patch
+Patch1: gnumeric-1.9.3-help-path.patch
 Patch3: gnumeric-1.8.0-missing.patch
 URL:http://www.gnome.org/projects/gnumeric/
 BuildRoot: %{_tmppath}/%{name}-%{version}-buildroot
@@ -80,9 +80,7 @@ usability. Hopefully the bugs have been left behind :).
 %patch3 -p1
 
 %build
-
 %configure2_5x --enable-ssindex
-
 %make
 
 %install
