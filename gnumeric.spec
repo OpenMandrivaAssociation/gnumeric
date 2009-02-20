@@ -5,7 +5,7 @@
 Name: gnumeric
 Summary: A full-featured spreadsheet for GNOME
 Version: 1.9.3
-Release: %mkrel 3
+Release: %mkrel 4
 License: GPLv2+
 Group: Office
 Source0: http://ftp.gnome.org/pub/GNOME/sources/%{name}/%{name}-%{version}.tar.bz2
@@ -16,6 +16,8 @@ Source4: %{name}-48.png
 Patch1: gnumeric-1.9.3-help-path.patch
 Patch3: gnumeric-1.8.0-missing.patch
 Patch4: gnumeric-1.9.3-fix-str-fmt.patch
+# (fc) 1.9.3-4mdv fix CVE-2009-0318
+Patch5: gnumeric-1.8.2-CVE-2009-0318-rh.patch
 URL:http://www.gnome.org/projects/gnumeric/
 BuildRoot: %{_tmppath}/%{name}-%{version}-buildroot
 
@@ -80,6 +82,7 @@ usability. Hopefully the bugs have been left behind :).
 %patch1 -p1
 %patch3 -p1
 %patch4 -p0
+%patch5 -p1 -b .CVE-2009-0318
 
 %build
 %configure2_5x --enable-ssindex
