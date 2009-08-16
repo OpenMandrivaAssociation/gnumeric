@@ -4,7 +4,7 @@
 
 Name: gnumeric
 Summary: A full-featured spreadsheet for GNOME
-Version: 1.9.9
+Version: 1.9.10
 Release: %mkrel 1
 License: GPLv2+
 Group: Office
@@ -12,9 +12,6 @@ Source0: http://ftp.gnome.org/pub/GNOME/sources/%{name}/%{name}-%{version}.tar.b
 Source2: %{name}-32.png
 Source3: %{name}-16.png
 Source4: %{name}-48.png
-# gw: hardcode help file path (bug #33798)
-Patch1: gnumeric-1.9.3-help-path.patch
-Patch3: gnumeric-1.8.0-missing.patch
 # (fc) 1.9.3-4mdv fix CVE-2009-0318
 Patch5: gnumeric-1.8.2-CVE-2009-0318-rh.patch
 URL:http://www.gnome.org/projects/gnumeric/
@@ -23,7 +20,7 @@ BuildRoot: %{_tmppath}/%{name}-%{version}-buildroot
 Requires: %libname = %version
 BuildRequires:	libgnomeui2-devel
 BuildRequires:  libgsf-devel >= 1:1.14.15
-BuildRequires:  libgoffice-devel >= 0.7.8
+BuildRequires:  libgoffice-devel >= 0.7.9
 BuildRequires:  libglade2.0-devel
 BuildRequires:  libgnomeprintui-devel >= 2.4.2
 #BuildRequires:	mono-devel
@@ -77,8 +74,6 @@ usability. Hopefully the bugs have been left behind :).
 
 %prep
 %setup -q
-%patch1 -p1
-%patch3 -p1
 %patch5 -p1 -b .CVE-2009-0318
 
 %build
