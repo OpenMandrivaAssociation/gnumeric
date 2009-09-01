@@ -24,8 +24,8 @@ BuildRequires:  libgoffice-devel >= 0.7.10
 BuildRequires:  libglade2.0-devel
 BuildRequires:  libgnomeprintui-devel >= 2.4.2
 #BuildRequires:	mono-devel
-BuildRequires:	libgda2.0-devel >= 3.1.1
-BuildRequires:	gnome-db2.0-devel >= 3.0.1
+#BuildRequires:	libgda2.0-devel >= 3.99.6
+#BuildRequires:	gnome-db2.0-devel >= 3.99.6
 BuildRequires:	libpx-devel >= 0.3.0
 BuildRequires:	libpsiconv-devel
 BuildRequires:	pygtk2.0-devel
