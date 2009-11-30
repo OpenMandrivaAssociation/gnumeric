@@ -5,7 +5,7 @@
 Name: gnumeric
 Summary: A full-featured spreadsheet for GNOME
 Version: 1.9.16
-Release: %mkrel 1
+Release: %mkrel 2
 License: GPLv2+
 Group: Office
 Source0: http://ftp.gnome.org/pub/GNOME/sources/%{name}/%{name}-%{version}.tar.bz2
@@ -24,7 +24,7 @@ BuildRequires:  libgoffice-devel >= 0.7.16
 BuildRequires:  libglade2.0-devel
 BuildRequires:  libgnomeprintui-devel >= 2.4.2
 #BuildRequires:	mono-devel
-BuildRequires:	gda4.0-devel >= 3.99.6
+BuildRequires:	gda4.0-devel >= 4.1.1
 BuildRequires:	libgnomedb4.0-devel >= 3.99.6
 BuildRequires:	libpx-devel >= 0.3.0
 BuildRequires:	libpsiconv-devel
