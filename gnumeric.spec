@@ -4,14 +4,16 @@
 
 Name: gnumeric
 Summary: A full-featured spreadsheet for GNOME
-Version: 1.9.16
-Release: %mkrel 2
+Version: 1.9.17
+Release: %mkrel 1
 License: GPLv2+
 Group: Office
 Source0: http://ftp.gnome.org/pub/GNOME/sources/%{name}/%{name}-%{version}.tar.bz2
 Source2: %{name}-32.png
 Source3: %{name}-16.png
 Source4: %{name}-48.png
+Patch: gnumeric-1.9.17-gda-build.patch
+Patch1: gnumeric-1.9.17-format-strings.patch
 # (fc) 1.9.3-4mdv fix CVE-2009-0318
 Patch5: gnumeric-1.8.2-CVE-2009-0318-rh.patch
 URL:http://www.gnome.org/projects/gnumeric/
@@ -20,11 +22,11 @@ BuildRoot: %{_tmppath}/%{name}-%{version}-buildroot
 Requires: %libname = %version
 BuildRequires:	libgnomeui2-devel
 BuildRequires:  libgsf-devel >= 1:1.14.15
-BuildRequires:  libgoffice-devel >= 0.7.16
+BuildRequires:  libgoffice-devel >= 0.7.17
 BuildRequires:  libglade2.0-devel
 BuildRequires:  libgnomeprintui-devel >= 2.4.2
 #BuildRequires:	mono-devel
-BuildRequires:	gda4.0-devel >= 4.1.1
+BuildRequires:	gda4.0-devel >= 4.1.3-2mdv
 BuildRequires:	libgnomedb4.0-devel >= 3.99.6
 BuildRequires:	libpx-devel >= 0.3.0
 BuildRequires:	libpsiconv-devel
@@ -74,7 +76,10 @@ usability. Hopefully the bugs have been left behind :).
 
 %prep
 %setup -q
+%patch -p1
+%patch1 -p1
 %patch5 -p1 -b .CVE-2009-0318
+autoreconf -fi
 
 %build
 %configure2_5x --enable-ssindex --with-gnome
