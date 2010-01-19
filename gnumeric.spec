@@ -12,7 +12,7 @@ Source0: http://ftp.gnome.org/pub/GNOME/sources/%{name}/%{name}-%{version}.tar.b
 Source2: %{name}-32.png
 Source3: %{name}-16.png
 Source4: %{name}-48.png
-Patch: gnumeric-1.9.17-gda-build.patch
+Patch0: gnumeric-1.9.17-gda-build.patch
 Patch1: gnumeric-1.9.17-format-strings.patch
 #gw rediffed from git, fix build without newly deprecated gtk+ stuff
 Patch2: 0002-fix-build-with-new-gtk.patch
