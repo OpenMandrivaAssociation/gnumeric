@@ -37,7 +37,8 @@ BuildRequires:  intltool
 #BuildRequires:	guile-devel >= 1.6
 BuildRequires:  desktop-file-utils
 Requires:	pygtk2.0
-Requires: goffice >= %goffice
+#gw it places files in the versioned goffice directory
+Requires: goffice = %goffice
 Requires(post):	scrollkeeper >= 0.3
 Requires(postun):	scrollkeeper >= 0.3
 
