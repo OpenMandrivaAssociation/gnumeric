@@ -4,7 +4,7 @@
 
 Name: gnumeric
 Summary: A full-featured spreadsheet for GNOME
-Version: 1.10.13
+Version: 1.10.14
 Release: %mkrel 1
 License: GPLv2+
 Group: Office
@@ -157,6 +157,7 @@ cat %name-functions.lang >> %name.lang
 %{_liconsdir}/%{name}.png
 %dir %{_datadir}/omf/gnumeric
 %{_datadir}/omf/gnumeric/gnumeric-C.omf
+%_datadir/glib-2.0/schemas/org.gnome.gnumeric*.xml
 
 %files -n %libname
 %defattr(-, root, root)
