@@ -20,7 +20,7 @@ BuildRoot: %{_tmppath}/%{name}-%{version}-buildroot
 
 Requires: %libname = %version
 BuildRequires:  gtk+2-devel
-BuildRequires:  GConf2-devel
+BuildRequires:  libGConf2-devel
 BuildRequires:  libgsf-devel >= 1:1.14.15
 BuildRequires:  libgoffice-devel >= 0.8.5
 #BuildRequires:	mono-devel
