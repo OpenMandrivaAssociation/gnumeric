@@ -8,7 +8,7 @@ Version: 1.10.16
 Release: %mkrel 1
 License: GPLv2+
 Group: Office
-Source0: http://ftp.gnome.org/pub/GNOME/sources/%{name}/%{name}-%{version}.tar.bz2
+Source0: http://ftp.gnome.org/pub/GNOME/sources/%{name}/%{name}-%{version}.tar.xz
 Source2: %{name}-32.png
 Source3: %{name}-16.png
 Source4: %{name}-48.png
