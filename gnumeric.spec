@@ -82,7 +82,7 @@ usability. Hopefully the bugs have been left behind :).
 %make
 
 %install
-rm -rf $RPM_BUILD_ROOT %{name}.lang
+rm -rf %{buildroot} %{name}.lang
 GCONF_DISABLE_MAKEFILE_SCHEMA_INSTALL=1 %makeinstall_std
 rm -vf %buildroot%_datadir/%name/%version/perl/*/auto/Gnumeric/.packlist
 rm -rf %buildroot/var
@@ -98,22 +98,22 @@ desktop-file-install --vendor="" \
   --remove-mime-type="zz-application/zz-winassoc-xls" \
   --add-category="GTK" \
   --add-category="GNOME" \
-  --dir $RPM_BUILD_ROOT%{_datadir}/applications $RPM_BUILD_ROOT%{_datadir}/applications/*
+  --dir %{buildroot}%{_datadir}/applications %{buildroot}%{_datadir}/applications/*
 
 # icon
-mkdir -p $RPM_BUILD_ROOT%{_liconsdir}
-mkdir -p $RPM_BUILD_ROOT%{_iconsdir}
-mkdir -p $RPM_BUILD_ROOT%{_miconsdir}
-cp -f %{SOURCE2} $RPM_BUILD_ROOT/%{_iconsdir}/%{name}.png
-cp -f %{SOURCE3} $RPM_BUILD_ROOT/%{_miconsdir}/%{name}.png
-cp -f %{SOURCE4} $RPM_BUILD_ROOT/%{_liconsdir}/%{name}.png
+mkdir -p %{buildroot}%{_liconsdir}
+mkdir -p %{buildroot}%{_iconsdir}
+mkdir -p %{buildroot}%{_miconsdir}
+cp -f %{SOURCE2} %{buildroot}/%{_iconsdir}/%{name}.png
+cp -f %{SOURCE3} %{buildroot}/%{_miconsdir}/%{name}.png
+cp -f %{SOURCE4} %{buildroot}/%{_liconsdir}/%{name}.png
 
 %find_lang %{name} --with-gnome
 %find_lang %{name}-functions
 cat %name-functions.lang >> %name.lang
 
 %clean
-[ -n "$RPM_BUILD_ROOT" -a "$RPM_BUILD_ROOT" != / ] && rm -rf $RPM_BUILD_ROOT
+[ -n "%{buildroot}" -a "%{buildroot}" != / ] && rm -rf %{buildroot}
 
 %if %mdkversion < 200900
 %post
