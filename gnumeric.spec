@@ -1,10 +1,10 @@
 %define libname %mklibname spreadsheet %version
 %define develname %mklibname -d spreadsheet
-%define goffice %(rpm -q --queryformat %%{VERSION} goffice)
+%define goffice 0.10
 
 Name: gnumeric
 Summary: A full-featured spreadsheet for GNOME
-Version: 1.10.17
+Version: 1.11.3
 Release: %mkrel 1
 License: GPLv2+
 Group: Office
@@ -16,19 +16,24 @@ Patch1: gnumeric-1.9.17-format-strings.patch
 # (fc) 1.9.3-4mdv fix CVE-2009-0318
 Patch5: gnumeric-1.8.2-CVE-2009-0318-rh.patch
 URL:http://www.gnome.org/projects/gnumeric/
-BuildRoot: %{_tmppath}/%{name}-%{version}-buildroot
 
 Requires: %libname = %version
-BuildRequires:  gtk+2-devel
+BuildRequires: pkgconfig(glib-2.0) >= 2.28.0
+BuildRequires: pkgconfig(gmodule-2.0) >= 2.28.0
+BuildRequires: pkgconfig(gobject-2.0) >= 2.28.0
+BuildRequires: pkgconfig(gthread-2.0) >= 2.28.0
+BuildRequires: pkgconfig(gtk+-3.0) >= 3.0.0
+BuildRequires: pkgconfig(libgda-4.0) >= 4.1.1
+BuildRequires: pkgconfig(libgoffice-0.10) >= 0.9.2
+BuildRequires: pkgconfig(libgsf-1) >= 1.14.18
+BuildRequires: pkgconfig(libxml-2.0) >= 2.4.12
+BuildRequires: pkgconfig(pango) >= 1.24.0
+BuildRequires: pkgconfig(pangocairo) >= 1.24.0
+BuildRequires: pkgconfig(pxlib) >= 0.4.0
+BuildRequires: pkgconfig(pygobject-2.0) >= 2.12.0
+#BuildRequires:  gtk+2-devel
 BuildRequires:  libGConf2-devel
-BuildRequires:  libgsf-devel >= 1:1.14.15
-BuildRequires:  libgoffice-devel >= 0.8.5
-#BuildRequires:	mono-devel
-#BuildRequires:	gda4.0-devel >= 4.1.3-2mdv
-#BuildRequires:	libgnomedb4.0-devel >= 3.99.6
-BuildRequires:	libpx-devel >= 0.3.0
-BuildRequires:	libpsiconv-devel
-BuildRequires:	pygtk2.0-devel
+BuildRequires:	psiconv-devel
 BuildRequires:	perl-devel
 BuildRequires:  scrollkeeper
 BuildRequires:  intltool
@@ -140,7 +145,6 @@ cat %name-functions.lang >> %name.lang
 %files -f %{name}.lang
 %defattr(-, root, root)
 %doc AUTHORS NEWS BUGS README
-%{_sysconfdir}/gconf/schemas/*
 %{_bindir}/*
 %{_libdir}/goffice/%goffice/plugins/gnumeric
 %{_libdir}/gnumeric
@@ -152,9 +156,7 @@ cat %name-functions.lang >> %name.lang
 %{_iconsdir}/%{name}.png
 %{_miconsdir}/%{name}.png
 %{_liconsdir}/%{name}.png
-%dir %{_datadir}/omf/gnumeric
-%{_datadir}/omf/gnumeric/gnumeric-C.omf
-%_datadir/glib-2.0/schemas/org.gnome.gnumeric*.xml
+%{_datadir}/glib-2.0/schemas/org.gnome.gnumeric*.xml
 
 %files -n %libname
 %defattr(-, root, root)
@@ -163,8 +165,6 @@ cat %name-functions.lang >> %name.lang
 %files -n %develname
 %defattr(-, root, root)
 %_libdir/libspreadsheet.so
-%_libdir/lib*.la
 %_libdir/pkgconfig/*.pc
 %_includedir/libspreadsheet-*/
-
 
