@@ -5,7 +5,7 @@
 Name: gnumeric
 Summary: A full-featured spreadsheet for GNOME
 Version: 1.11.3
-Release: %mkrel 2
+Release: 3
 License: GPLv2+
 Group: Office
 Source0: http://ftp.gnome.org/pub/GNOME/sources/%{name}/%{name}-%{version}.tar.xz
@@ -43,7 +43,10 @@ BuildRequires:  intltool
 BuildRequires:  desktop-file-utils
 Requires:	pygtk2.0
 #gw it places files in the versioned goffice directory
-Requires: goffice = %goffice
+# But as usual with the G mess, stuff doesn't make sense and
+# goffice's version is 0.9 while its filesystem version is
+# 0.10...
+Requires: goffice >= 0.9
 Requires(post):	scrollkeeper >= 0.3
 Requires(postun):	scrollkeeper >= 0.3
 
