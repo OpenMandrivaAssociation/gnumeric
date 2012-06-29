@@ -19,6 +19,7 @@ Patch5:		gnumeric-1.8.2-CVE-2009-0318-rh.patch
 
 BuildRequires:	desktop-file-utils
 BuildRequires:	intltool
+BuildRequires:	rarian
 BuildRequires:	perl-devel
 BuildRequires:	psiconv-devel
 BuildRequires:	pkgconfig(glib-2.0)
@@ -81,8 +82,7 @@ autoreconf -fi
 
 %build
 %configure2_5x \
-	--enable-ssindex \
-	--disable-scrollkeeper
+	--enable-ssindex
 
 %make
 
