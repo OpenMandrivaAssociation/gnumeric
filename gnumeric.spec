@@ -1,3 +1,5 @@
+%define url_ver %(echo %{version}|cut -d. -f1,2)
+
 %define goffice 0.10
 %define libname %mklibname spreadsheet %{version}
 %define devname %mklibname -d spreadsheet
@@ -9,7 +11,7 @@ Release:	1
 License:	GPLv2+
 Group:		Office
 URL:		http://www.gnome.org/projects/gnumeric/
-Source0:	http://ftp.gnome.org/pub/GNOME/sources/%{name}/%{name}-%{version}.tar.xz
+Source0:	http://ftp.gnome.org/pub/GNOME/sources/%{name}/%{url_ver}/%{name}-%{version}.tar.xz
 #This patch is borked, leave it here as reference
 # configure is disabling gda for now
 Patch0:		gnumeric-1.11.3-gda-build.patch
