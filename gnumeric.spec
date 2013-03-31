@@ -14,7 +14,6 @@ URL:		http://www.gnome.org/projects/gnumeric/
 Source0:	http://ftp.gnome.org/pub/GNOME/sources/%{name}/%{url_ver}/%{name}-%{version}.tar.xz
 #This patch is borked, leave it here as reference
 # configure is disabling gda for now
-Patch0:		gnumeric-1.11.3-gda-build.patch
 Patch1:		gnumeric-1.9.17-format-strings.patch
 # (fc) 1.9.3-4mdv fix CVE-2009-0318
 Patch5:		gnumeric-1.8.2-CVE-2009-0318-rh.patch
