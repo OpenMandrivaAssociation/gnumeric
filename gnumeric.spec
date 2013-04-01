@@ -1,4 +1,5 @@
 %define url_ver %(echo %{version}|cut -d. -f1,2)
+%define _disable_ld_no_undefined 1
 
 %define goffice 0.10
 %define libname %mklibname spreadsheet %{version}
