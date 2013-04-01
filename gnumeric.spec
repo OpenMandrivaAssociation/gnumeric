@@ -37,6 +37,7 @@ BuildRequires:	pkgconfig(pangocairo)
 BuildRequires:	pkgconfig(pxlib)
 BuildRequires:	pkgconfig(pygobject-2.0)
 BuildRequires:	pkgconfig(gtk+-2.0)
+BuildRequires:	perl-IO-Compress
 
 Requires:	pygtk2.0
 #gw it places files in the versioned goffice directory
