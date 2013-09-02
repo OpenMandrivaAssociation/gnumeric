@@ -7,7 +7,7 @@
 
 Summary:	A full-featured spreadsheet for GNOME
 Name:		gnumeric
-Version:	1.12.1
+Version:	1.12.7
 Release:	1
 License:	GPLv2+
 Group:		Office
@@ -103,9 +103,7 @@ desktop-file-install --vendor="" \
 	--dir %{buildroot}%{_datadir}/applications \
 	%{buildroot}%{_datadir}/applications/*
 
-%find_lang %{name} --with-gnome
-%find_lang %{name}-functions
-cat %{name}-functions.lang >> %{name}.lang
+%find_lang %{name} --with-gnome --all-name
 
 %preun
 %preun_uninstall_gconf_schemas %schemas

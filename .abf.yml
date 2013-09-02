@@ -1,2 +1,4 @@
+removed_sources:
+  gnumeric-1.12.1.tar.xz: bd1ed3ca0f005dd6c6830b279fdaad091f4d2cee
 sources:
- gnumeric-1.12.1.tar.xz : bd1ed3ca0f005dd6c6830b279fdaad091f4d2cee
+  gnumeric-1.12.7.tar.xz: abdfa549f080007e1c360327aacbe3362b711f31

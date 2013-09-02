@@ -1,15 +1,3 @@
-diff -p -up gnumeric-1.9.17/plugins/gda/plugin-gda.c~ gnumeric-1.9.17/plugins/gda/plugin-gda.c
---- gnumeric-1.9.17/plugins/gda/plugin-gda.c~	2009-12-16 12:59:06.000000000 +0100
-+++ gnumeric-1.9.17/plugins/gda/plugin-gda.c	2009-12-16 13:00:37.000000000 +0100
-@@ -470,7 +470,7 @@ view_data_sources (GnmAction const *acti
- 			_("Could not run GNOME database configuration tool ('%s')"),
- 			argv[0]);
- 		go_gtk_notice_dialog (wbcg_toplevel (WBC_GTK (wbc)),
--			GTK_MESSAGE_INFO,  msg);
-+				      GTK_MESSAGE_INFO,  "%s", msg);
- 		g_free (msg);
- 	}
- 	g_free (argv[0]);
 diff -p -up gnumeric-1.9.17/plugins/gnome-db/plugin-gnomedb.c~ gnumeric-1.9.17/plugins/gnome-db/plugin-gnomedb.c
 --- gnumeric-1.9.17/plugins/gnome-db/plugin-gnomedb.c~	2009-09-07 04:03:35.000000000 +0200
 +++ gnumeric-1.9.17/plugins/gnome-db/plugin-gnomedb.c	2009-12-16 13:03:48.000000000 +0100
