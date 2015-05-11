@@ -1,14 +1,14 @@
 %define _disable_ld_no_undefined 1
 %define url_ver %(echo %{version}|cut -d. -f1,2)
 
-%define goffice	0.10
+%define goffice 0.10
 %define libname %mklibname spreadsheet %{version}
 %define devname %mklibname -d spreadsheet
 
 Summary:	A full-featured spreadsheet for GNOME
 Name:		gnumeric
-Version:	1.12.1
-Release:	2
+Version:	1.12.22
+Release:	0.1
 License:	GPLv2+
 Group:		Office
 Url:		http://www.gnome.org/projects/gnumeric/
@@ -38,19 +38,38 @@ BuildRequires:	pkgconfig(libxml-2.0)
 BuildRequires:	pkgconfig(pango)
 BuildRequires:	pkgconfig(pangocairo)
 BuildRequires:	pkgconfig(pxlib)
-BuildRequires:	pkgconfig(pygobject-2.0)
+BuildRequires:	pkgconfig(python)
+BuildRequires:	pkgconfig(pygobject-3.0)
 Requires:	pygtk2.0
 #gw it places files in the versioned goffice directory
 # But as usual with the G mess, stuff doesn't make sense and
 # goffice's version is 0.9 while its filesystem version is
 # 0.10...
-Requires: goffice >= 0.9
+Requires:	goffice >= 0.9
 
 %description
 This is the Gnumeric, the GNOME spreadsheet program. If you are familiar with 
 Excel, you should be ready to use Gnumeric.  It tries to clone all of 
 the good features and stay as compatible as possible with Excel in terms of 
 usability. Hopefully the bugs have been left behind :).
+
+%files -f %{name}.lang
+%doc AUTHORS NEWS BUGS README
+%{_bindir}/*
+%{_libdir}/goffice/%{goffice}/plugins/gnumeric
+%{_libdir}/gnumeric
+%{_datadir}/appdata/gnumeric.appdata.xml
+%{_datadir}/glib-2.0/schemas/org.gnome.gnumeric*.xml
+%{_datadir}/gnumeric
+%{_datadir}/applications/*
+%{_datadir}/pixmaps/*
+%{_iconsdir}/hicolor/*/apps/gnumeric*
+%{_mandir}/man1/*
+
+%preun
+%preun_uninstall_gconf_schemas %{schemas}
+
+#----------------------------------------------------------------------------
 
 %package -n %{libname}
 Summary:	Spreadsheet library from Gnumeric
@@ -62,11 +81,16 @@ Excel, you should be ready to use Gnumeric.  It tries to clone all of
 the good features and stay as compatible as possible with Excel in terms of 
 usability. Hopefully the bugs have been left behind :).
 
+%files -n %{libname}
+%{_libdir}/libspreadsheet-%{version}.so
+
+#----------------------------------------------------------------------------
+
 %package -n %{devname}
 Summary:	Spreadsheet library from Gnumeric - development files
 Group:		Development/C
-Requires:	%{libname} = %{version}
-Provides:	%{name}-devel = %{version}-%{release}
+Requires:	%{libname} = %{EVRD}
+Provides:	%{name}-devel = %{EVRD}
 
 %description -n %{devname}
 This is the Gnumeric, the GNOME spreadsheet program. If you are familiar with 
@@ -74,23 +98,29 @@ Excel, you should be ready to use Gnumeric.  It tries to clone all of
 the good features and stay as compatible as possible with Excel in terms of 
 usability. Hopefully the bugs have been left behind :).
 
+%files -n %{devname}
+%{_libdir}/libspreadsheet.so
+%{_libdir}/pkgconfig/*.pc
+%{_includedir}/libspreadsheet-*/
+
+#----------------------------------------------------------------------------
+
 %prep
 %setup -q
 %apply_patches
 
 %build
-%configure2_5x \
-	--enable-ssindex
+
+export CC=gcc
+%configure2_5x
 
 %make
 
 %install
 GCONF_DISABLE_MAKEFILE_SCHEMA_INSTALL=1 %makeinstall_std
-rm -vf %{buildroot}%_datadir/%{name}/%{version}/perl/*/auto/Gnumeric/.packlist
+rm -vf %{buildroot}%{_datadir}/%{name}/%{version}/perl/*/auto/Gnumeric/.packlist
 rm -rf %{buildroot}/var
-ln -s %_datadir/gnome %{buildroot}%_datadir/%{name}/%{version}
-
-find %{buildroot} -name \*.la|xargs chmod 644
+ln -s %{_datadir}/gnome %{buildroot}%{_datadir}/%{name}/%{version}
 
 desktop-file-install --vendor="" \
 	--remove-category="Application" \
@@ -103,30 +133,5 @@ desktop-file-install --vendor="" \
 	--dir %{buildroot}%{_datadir}/applications \
 	%{buildroot}%{_datadir}/applications/*
 
-%find_lang %{name} --with-gnome
-%find_lang %{name}-functions
-cat %{name}-functions.lang >> %{name}.lang
-
-%preun
-%preun_uninstall_gconf_schemas %schemas
-
-%files -f %{name}.lang
-%doc AUTHORS NEWS BUGS README
-%{_bindir}/*
-%{_libdir}/goffice/%goffice/plugins/gnumeric
-%{_libdir}/gnumeric
-%{_datadir}/glib-2.0/schemas/org.gnome.gnumeric*.xml
-%{_datadir}/gnumeric
-%{_datadir}/applications/*
-%{_datadir}/pixmaps/*
-%{_iconsdir}/hicolor/*/apps/gnumeric*
-%{_mandir}/man1/*
-
-%files -n %{libname}
-%{_libdir}/libspreadsheet-%{version}.so
-
-%files -n %{devname}
-%{_libdir}/libspreadsheet.so
-%{_libdir}/pkgconfig/*.pc
-%{_includedir}/libspreadsheet-*/
+%find_lang %{name} --with-gnome --all-name
 
