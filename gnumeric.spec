@@ -7,8 +7,8 @@
 
 Summary:	A full-featured spreadsheet for GNOME
 Name:		gnumeric
-Version:	1.12.22
-Release:	2
+Version:	1.12.39
+Release:	1
 License:	GPLv2+
 Group:		Office
 Url:		http://www.gnome.org/projects/gnumeric/
@@ -21,6 +21,7 @@ Patch5:		gnumeric-1.8.2-CVE-2009-0318-rh.patch
 
 BuildRequires:	desktop-file-utils
 BuildRequires:	intltool
+BuildRequires:	itstool
 BuildRequires:	perl-IO-Compress
 BuildRequires:	rarian
 BuildRequires:	perl-devel
@@ -29,7 +30,6 @@ BuildRequires:	pkgconfig(glib-2.0)
 BuildRequires:	pkgconfig(gmodule-2.0)
 BuildRequires:	pkgconfig(gobject-2.0)
 BuildRequires:	pkgconfig(gthread-2.0)
-BuildRequires:	pkgconfig(gtk+-2.0)
 BuildRequires:	pkgconfig(gtk+-3.0)
 BuildRequires:	pkgconfig(libgda-5.0)
 BuildRequires:	pkgconfig(libgoffice-0.10)
@@ -38,7 +38,7 @@ BuildRequires:	pkgconfig(libxml-2.0)
 BuildRequires:	pkgconfig(pango)
 BuildRequires:	pkgconfig(pangocairo)
 BuildRequires:	pkgconfig(pxlib)
-BuildRequires:	pkgconfig(python)
+BuildRequires:	pkgconfig(python2)
 BuildRequires:	pkgconfig(pygobject-3.0)
 Requires:	pygtk2.0
 #gw it places files in the versioned goffice directory
@@ -112,7 +112,8 @@ usability. Hopefully the bugs have been left behind :).
 %build
 
 export CC=gcc
-%configure2_5x
+export PYTHON=%__python2
+%configure
 
 %make
 
