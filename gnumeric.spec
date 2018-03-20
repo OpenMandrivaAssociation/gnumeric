@@ -40,7 +40,6 @@ BuildRequires:	pkgconfig(pangocairo)
 BuildRequires:	pkgconfig(pxlib)
 BuildRequires:	pkgconfig(python2)
 BuildRequires:	pkgconfig(pygobject-3.0)
-Requires:	pygtk2.0
 #gw it places files in the versioned goffice directory
 # But as usual with the G mess, stuff doesn't make sense and
 # goffice's version is 0.9 while its filesystem version is
