@@ -19,6 +19,7 @@ Patch1:		gnumeric-1.9.17-format-strings.patch
 # (fc) 1.9.3-4mdv fix CVE-2009-0318
 Patch5:		gnumeric-1.8.2-CVE-2009-0318-rh.patch
 
+BuildRequires:	bison
 BuildRequires:	desktop-file-utils
 BuildRequires:	intltool
 BuildRequires:	itstool
