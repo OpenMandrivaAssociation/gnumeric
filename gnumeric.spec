@@ -7,8 +7,8 @@
 
 Summary:	A full-featured spreadsheet for GNOME
 Name:		gnumeric
-Version:	1.12.39
-Release:	2
+Version:	1.12.44
+Release:	1
 License:	GPLv2+
 Group:		Office
 Url:		http://www.gnome.org/projects/gnumeric/
@@ -21,12 +21,14 @@ Patch5:		gnumeric-1.8.2-CVE-2009-0318-rh.patch
 
 BuildRequires:	bison
 BuildRequires:	desktop-file-utils
+BuildRequires:	docbook-dtds
 BuildRequires:	intltool
 BuildRequires:	itstool
 BuildRequires:	perl-IO-Compress
 BuildRequires:	rarian
 BuildRequires:	perl-devel
 BuildRequires:	psiconv-devel
+BuildRequires:	scrollkeeper
 BuildRequires:	pkgconfig(glib-2.0)
 BuildRequires:	pkgconfig(gmodule-2.0)
 BuildRequires:	pkgconfig(gobject-2.0)
