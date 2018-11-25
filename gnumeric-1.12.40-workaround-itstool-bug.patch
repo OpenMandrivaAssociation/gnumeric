@@ -1,0 +1,12 @@
+diff -up ./doc/Makefile.am.orig ./doc/Makefile.am
+--- ./doc/Makefile.am.orig	2018-05-01 08:59:16.135294016 +0300
++++ ./doc/Makefile.am	2018-05-01 08:59:36.333561279 +0300
+@@ -8,7 +8,7 @@ DISTCLEANFILES=
+ @YELP_HELP_RULES@
+ 
+ HELP_ID=gnumeric
+-HELP_LINGUAS=cs de es
++HELP_LINGUAS=de es
+ HELP_FILES=gnumeric.xml
+ 
+ HELP_EXTRA=					\
