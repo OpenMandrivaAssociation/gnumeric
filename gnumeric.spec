@@ -115,7 +115,7 @@ usability. Hopefully the bugs have been left behind :).
 
 %build
 
-#export CC=gcc
+export CC=gcc
 export PYTHON=%__python2
 %configure
 
