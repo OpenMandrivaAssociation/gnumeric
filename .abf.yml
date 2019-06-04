@@ -1,7 +1,2 @@
-removed_sources:
-  gnumeric-1.12.18.tar.xz: 24a2387ef332c8110e229a9b51e61ca9d3c838ee
-  gnumeric-1.12.22.tar.xz: 276d01bb76cae4f59cf8a22bb0e213ec7f595dc6
-  gnumeric-1.12.9.tar.xz: f6b85391c3c124cd4f3ba58db420e114ac9ea87a
 sources:
-  gnumeric-1.12.39.tar.xz: 57f4abe564615facd5f318305d60ae2ddc93843d
-  gnumeric-1.12.44.tar.xz: d6c632ace32d748bbb1f8e90a38a936d792d4bf9
+  gnumeric-1.12.45.tar.xz: 0accd92308c7cfd1986c4c9e6e7f542581a6f6d0
