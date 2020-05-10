@@ -7,8 +7,8 @@
 
 Summary:	A full-featured spreadsheet for GNOME
 Name:		gnumeric
-Version:	1.12.46
-Release:	2
+Version:	1.12.47
+Release:	1
 License:	GPLv2+
 Group:		Office
 Url:		http://www.gnome.org/projects/gnumeric/
@@ -43,7 +43,6 @@ BuildRequires:	pkgconfig(libxml-2.0)
 BuildRequires:	pkgconfig(pango)
 BuildRequires:	pkgconfig(pangocairo)
 BuildRequires:	pkgconfig(pxlib)
-BuildRequires:	pkgconfig(python2)
 BuildRequires:	pkgconfig(pygobject-3.0)
 #gw it places files in the versioned goffice directory
 # But as usual with the G mess, stuff doesn't make sense and
@@ -115,11 +114,10 @@ usability. Hopefully the bugs have been left behind :).
 
 %build
 
-export CC=gcc
-export PYTHON=%__python2
+#export CC=gcc
 %configure
 
-%make
+%make_build
 
 %install
 GCONF_DISABLE_MAKEFILE_SCHEMA_INSTALL=1 %makeinstall_std
