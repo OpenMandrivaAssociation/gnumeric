@@ -65,7 +65,7 @@ usability. Hopefully the bugs have been left behind :).
 %{_datadir}/glib-2.0/schemas/org.gnome.gnumeric*.xml
 %{_datadir}/gnumeric
 %{_datadir}/applications/*
-%{_datadir}/pixmaps/*
+#{_datadir}/pixmaps/*
 %{_iconsdir}/hicolor/*/apps/gnumeric*
 %{_mandir}/man1/*
 
