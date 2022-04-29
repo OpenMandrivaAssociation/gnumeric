@@ -61,7 +61,7 @@ usability. Hopefully the bugs have been left behind :).
 %{_bindir}/*
 %{_libdir}/goffice/%{goffice}/plugins/gnumeric
 %{_libdir}/gnumeric
-%{_datadir}/appdata/gnumeric.appdata.xml
+#{_datadir}/appdata/gnumeric.appdata.xml
 %{_datadir}/glib-2.0/schemas/org.gnome.gnumeric*.xml
 %{_datadir}/gnumeric
 %{_datadir}/applications/*
