@@ -1,6 +1,8 @@
 %define _disable_ld_no_undefined 1
 %define url_ver %(echo %{version}|cut -d. -f1,2)
 
+%global optflags %{optflags} -Wno-error -Wno-implicit-function-declaration
+
 %define goffice 0.10
 %define libname %mklibname spreadsheet %{version}
 %define devname %mklibname -d spreadsheet
