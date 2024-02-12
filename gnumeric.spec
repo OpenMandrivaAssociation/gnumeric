@@ -7,12 +7,12 @@
 
 Summary:	A full-featured spreadsheet for GNOME
 Name:		gnumeric
-Version:	1.12.56
+Version:	1.12.57
 Release:	1
 License:	GPLv2+
 Group:		Office
-Url:		http://www.gnome.org/projects/gnumeric/
-Source0:	http://ftp.gnome.org/pub/GNOME/sources/%{name}/%{url_ver}/%{name}-%{version}.tar.xz
+Url:		https://www.gnome.org/projects/gnumeric/
+Source0:	https://ftp.gnome.org/pub/GNOME/sources/%{name}/%{url_ver}/%{name}-%{version}.tar.xz
 #This patch is borked, leave it here as reference
 # configure is disabling gda for now
 #Patch1:		gnumeric-1.9.17-format-strings.patch
