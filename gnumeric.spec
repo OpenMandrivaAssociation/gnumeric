@@ -64,7 +64,7 @@ the good features and stay as compatible as possible with Excel in terms of
 usability. Hopefully the bugs have been left behind :).
 
 %files -f %{name}.lang
-%doc AUTHORS NEWS BUGS README
+%doc AUTHORS NEWS README
 %{_bindir}/*
 %{_libdir}/goffice/%{goffice}/plugins/gnumeric
 %{_libdir}/gnumeric
