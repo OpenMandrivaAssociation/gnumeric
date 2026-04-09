@@ -23,6 +23,9 @@ Source0:	https://ftp.gnome.org/pub/GNOME/sources/%{name}/%{url_ver}/%{name}-%{ve
 #Patch6:		gnumeric-1.12.40-workaround-itstool-bug.patch
 # https://github.com/GNOME/gnumeric/commit/d0fb2d4454a2865ba4a4a917d04f19b1fb1298d0.patch
 
+# Upstream patch to fix parallel builds
+Patch0:	https://gitlab.gnome.org/GNOME/gnumeric/-/merge_requests/40.patch
+
 BuildRequires:	autoconf
 BuildRequires:	automake
 BuildRequires:	libtool-base
@@ -121,7 +124,7 @@ usability. Hopefully the bugs have been left behind :).
 %build
 
 #export CC=gcc
-%configure --disable-doc
+%configure
 
 %make_build
 
