@@ -121,7 +121,7 @@ usability. Hopefully the bugs have been left behind :).
 %build
 
 #export CC=gcc
-%configure
+%configure --disable-doc
 
 %make_build
 
